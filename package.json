@@ -1,0 +1,25 @@
+{
+  "name": "backened",
+  "version": "1.0.0",
+  "description": "normal practise",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-jason-modules src/index.js"
+  },
+  "keywords": [
+    "javascript",
+    "backened"
+  ],
+  "author": "Aman pal",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "mongoose": "^8.2.1"
+  }
+}
