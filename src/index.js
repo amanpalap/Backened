@@ -3,7 +3,7 @@ import connectDB from "./db/index.js";
 import {app} from "./app.js"
 
 dotenv.config({
-    path: "./env",
+    path: "./.env",
   })
 
   connectDB()
@@ -16,23 +16,3 @@ dotenv.config({
     console.log("MONGODB connection is failed !!!", err);
   });
 
-// import express from "express";
-
-// const app = express()
-
-// ;(async () => {
-//     try {
-//        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-//         app.on("error",(error)=>{
-//             console.log("Error",error)
-//             throw error
-//         })
-
-//         app.listen(process.env.port, ()=>{
-//             console.log(`App is Listening on port ${process.env.PORT}`)
-//         })
-//     } catch (error) {
-//         console.error("ERROR: ", error)
-//         throw err
-//     }
-// })()
