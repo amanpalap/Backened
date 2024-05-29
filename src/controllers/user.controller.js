@@ -199,9 +199,11 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
       .cookies("accessToken", accessToken, options)
       .cookies("refreshToken", newRefreshToken, options)
       .json(
-        200,
-        { accessToken, refreshToken: newRefreshToken },
-        "accessToken refreshed"
+        new ApiResponse(
+          200,
+          { accessToken, refreshToken: newRefreshToken },
+          "accessToken refreshed"
+        )
       );
   } catch (error) {
     throw new ApiError(401, error?.message || "Invalid refresh token");
@@ -238,7 +240,7 @@ const updateAccountDetail = asyncHandler(async (req, res) => {
     throw new ApiError(400, "All fields are required");
   }
 
-  const user = User.findByIdAndUpdate(
+  const user = await User.findByIdAndUpdate(
     req.user?._id,
     {
       $set: {
